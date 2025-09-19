@@ -1,0 +1,972 @@
+/* Hero Section Styles */
+.hero-section {
+  min-height: calc(100vh - 24px); /* Account for status bar */
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.2fr 500px;
+  gap: 60px;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+@media (max-width: 1024px) {
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+}
+
+/* Code Editor */
+.code-editor {
+  background: var(--vscode-panel-bg);
+  border: 1px solid var(--vscode-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 100%;
+}
+
+.editor-header {
+  background: var(--vscode-sidebar-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--vscode-border);
+  min-height: 40px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.editor-tabs {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+.editor-actions {
+  flex-shrink: 0;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--vscode-editor-bg);
+  color: var(--vscode-text);
+  border: 1px solid var(--vscode-border);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  font-size: 12px;
+}
+
+.tab.active {
+  border-top: 2px solid var(--vscode-statusbar-bg);
+  padding-top: 4px;
+}
+
+.tab-icon {
+  font-size: 10px;
+}
+
+.run-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: var(--vscode-green);
+  color: var(--vscode-bg);
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.run-button:hover {
+  background: #3ea693;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Editor Body */
+.editor-body {
+  display: flex;
+  background: var(--vscode-editor-bg);
+  min-height: 400px;
+  max-height: 500px;
+  overflow: hidden; /* Remove scroll from container */
+  width: 100%;
+}
+
+.line-numbers {
+  background: var(--vscode-sidebar-bg);
+  padding: 16px 8px;
+  min-width: 40px;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 13px;
+  color: var(--vscode-text-secondary);
+  line-height: 1.5;
+  user-select: none;
+  border-right: 1px solid var(--vscode-border);
+}
+
+.line-number {
+  text-align: right;
+  padding-right: 8px;
+}
+
+.code-content {
+  flex: 1;
+  padding: 16px;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-y: auto; /* Vertical scroll */
+  overflow-x: auto; /* Horizontal scroll when needed */
+  min-width: 0;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.code-line {
+  display: block; /* Change from flex to block */
+  min-height: 19.5px; /* Consistent line height */
+  line-height: 19.5px;
+  padding: 0;
+  white-space: pre; /* Preserve exact formatting */
+  overflow: visible; /* Allow content to be visible */
+}
+
+.code-line span {
+  min-height: 19.5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 19px;
+  background: var(--vscode-text);
+  animation: blink 1s infinite;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Syntax Highlighting - VS Code Theme */
+.code-content .comment {
+  color: #6a9955;
+  font-style: italic;
+}
+
+.code-content .keyword {
+  color: #569cd6;
+  font-weight: 500;
+}
+
+.code-content .string {
+  color: #ce9178;
+}
+
+.code-content .property {
+  color: #9cdcfe;
+}
+
+.code-content .variable {
+  color: #4fc1ff;
+  font-weight: 500;
+}
+
+.code-content .function {
+  color: #dcdcaa;
+  font-weight: 500;
+}
+
+.code-content .number {
+  color: #b5cea8;
+}
+
+.code-content .boolean {
+  color: #569cd6;
+}
+
+.code-content .console {
+  color: #dcdcaa;
+}
+
+/* Hero Info Panel */
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-panel {
+  background: var(--vscode-panel-bg);
+  border: 1px solid var(--vscode-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-medium);
+}
+
+.info-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--vscode-text-accent);
+}
+
+.panel-header {
+  background: var(--vscode-sidebar-bg);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--vscode-border);
+}
+
+.panel-icon {
+  font-size: 16px;
+}
+
+.panel-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vscode-text);
+}
+
+.panel-content {
+  padding: 16px;
+}
+
+/* Stats Panel */
+.stats-panel .panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--vscode-border);
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--vscode-text-secondary);
+}
+
+.stat-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vscode-text);
+}
+
+/* Tech Panel */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--vscode-editor-bg);
+  border: 1px solid var(--vscode-border);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--vscode-text);
+  transition: all var(--transition-fast);
+}
+
+.tech-item:hover {
+  background: var(--vscode-list-hoverBackground);
+  border-color: var(--vscode-text-accent);
+  transform: scale(1.02);
+}
+
+.tech-icon {
+  font-size: 14px;
+}
+
+/* Terminal Panel */
+.terminal-panel {
+  margin-bottom: 0;
+}
+
+.terminal-panel .terminal-window {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.terminal-panel .terminal-header {
+  background: transparent;
+  border-bottom-color: var(--vscode-border);
+}
+
+.terminal-panel .terminal-body {
+  background: var(--vscode-editor-bg);
+}
+
+.output-line.success {
+  color: var(--vscode-green);
+  font-weight: 500;
+}
+
+/* Hero CTA */
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Terminal Window */
+.terminal-window {
+  background: var(--vscode-bg);
+  border: 1px solid var(--vscode-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.terminal-header {
+  background: var(--vscode-sidebar-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--vscode-border);
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.control.red {
+  background: #ff5f56;
+}
+.control.yellow {
+  background: #ffbd2e;
+}
+.control.green {
+  background: #27ca3f;
+}
+
+.terminal-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--vscode-text-secondary);
+}
+
+.terminal-body {
+  padding: 16px;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.terminal-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.prompt {
+  color: var(--vscode-green);
+  font-weight: bold;
+}
+
+.command {
+  color: var(--vscode-text-accent);
+}
+
+.terminal-output {
+  margin-top: 12px;
+}
+
+.output-line {
+  color: var(--vscode-text-secondary);
+  margin-bottom: 4px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 1px solid var(--vscode-border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-primary {
+  background: var(--vscode-statusbar-bg);
+  border-color: var(--vscode-statusbar-bg);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #005a9e;
+  border-color: #005a9e;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--vscode-text-accent);
+  color: var(--vscode-text-accent);
+}
+
+.btn-secondary:hover {
+  background: var(--vscode-text-accent);
+  color: var(--vscode-bg);
+  transform: translateY(-2px);
+}
+
+/* Floating Elements */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.floating-icon {
+  position: absolute;
+  font-size: 48px;
+  opacity: 0.1;
+  user-select: none;
+}
+
+.floating-icon:nth-child(1) {
+  top: 15%;
+  right: 10%;
+}
+
+.floating-icon:nth-child(2) {
+  top: 60%;
+  left: 5%;
+}
+
+.floating-icon:nth-child(3) {
+  top: 80%;
+  right: 30%;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .hero-content {
+    grid-template-columns: 1fr 450px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .code-editor {
+    max-width: 700px;
+    margin: 0 auto;
+    order: 2;
+  }
+
+  .hero-info {
+    max-width: 600px;
+    margin: 0 auto;
+    order: 1;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 20px 0;
+    min-height: auto;
+  }
+
+  .hero-content {
+    gap: 30px;
+    padding: 0 16px;
+  }
+
+  .code-editor {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-info {
+    order: 1;
+  }
+
+  .editor-header {
+    padding: 8px 12px;
+    min-height: 44px;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .editor-tabs {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .tab {
+    font-size: 11px;
+    padding: 4px 8px;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .tab span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .editor-actions {
+    flex-shrink: 0;
+  }
+
+  .run-button {
+    font-size: 10px;
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  .editor-body {
+    min-height: 350px;
+    max-height: 400px;
+    overflow: hidden;
+  }
+
+  .code-content,
+  .line-numbers {
+    font-size: 13px;
+    padding: 12px 8px;
+  }
+
+  .code-content {
+    padding: 12px;
+    min-width: 0;
+    overflow-y: auto;
+    overflow-x: auto;
+    font-size: 11px; /* Smaller font for mobile */
+    white-space: nowrap;
+  }
+
+  .line-numbers {
+    min-width: 35px;
+    padding: 12px 6px;
+    flex-shrink: 0;
+    overflow: hidden;
+    font-size: 11px; /* Match code content */
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 15px;
+    min-height: 48px; /* Better touch target */
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-panel .panel-content {
+    gap: 8px;
+  }
+
+  .stat-item {
+    padding: 6px 0;
+  }
+
+  .terminal-line {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .terminal-body {
+    font-size: 13px;
+  }
+
+  .floating-icon {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 0 12px;
+    gap: 24px;
+  }
+
+  .code-editor {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .editor-header {
+    padding: 6px 8px;
+    min-height: 40px;
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .editor-tabs {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .tab {
+    font-size: 10px;
+    padding: 3px 6px;
+    gap: 3px;
+    min-width: 0;
+  }
+
+  .tab-icon {
+    font-size: 9px;
+  }
+
+  .editor-actions {
+    flex-shrink: 0;
+  }
+
+  .run-button {
+    font-size: 9px;
+    padding: 3px 6px;
+    gap: 2px;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .editor-body {
+    min-height: 320px;
+    max-height: 350px;
+    overflow: hidden;
+  }
+
+  .code-content,
+  .line-numbers {
+    padding: 10px 6px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .code-content {
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: auto;
+    min-width: 0;
+    font-size: 10px; /* Even smaller for 480px */
+    white-space: nowrap;
+  }
+
+  .line-numbers {
+    min-width: 30px;
+    flex-shrink: 0;
+    overflow: hidden;
+    font-size: 10px;
+  }
+
+  .terminal-body {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .terminal-header {
+    padding: 6px 12px;
+  }
+
+  .terminal-title {
+    font-size: 11px;
+  }
+
+  .action-buttons {
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 16px 20px;
+    font-size: 14px;
+    min-height: 50px;
+  }
+
+  .info-panel {
+    margin-bottom: 16px;
+  }
+
+  .panel-content {
+    padding: 12px;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .tech-item {
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .floating-icon {
+    font-size: 32px;
+    opacity: 0.05;
+  }
+
+  /* Better code readability on very small screens */
+  .code-line {
+    min-height: 18px;
+    line-height: 18px;
+    white-space: pre;
+    overflow: visible;
+    display: block;
+  }
+
+  .cursor {
+    height: 16px;
+  }
+}
+
+/* Extra small devices and landscape phones */
+@media (max-width: 360px) {
+  .hero-content {
+    padding: 0 8px;
+    gap: 20px;
+  }
+
+  .hero-section {
+    padding: 16px 0;
+  }
+
+  .code-editor {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .editor-header {
+    padding: 4px 6px;
+    min-height: 36px;
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+
+  .editor-tabs {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .tab {
+    font-size: 9px;
+    padding: 2px 4px;
+    gap: 2px;
+    min-width: 60px;
+    max-width: 80px;
+  }
+
+  .tab span:not(.tab-icon) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .tab-icon {
+    font-size: 8px;
+    flex-shrink: 0;
+  }
+
+  .editor-actions {
+    flex-shrink: 0;
+  }
+
+  .run-button {
+    font-size: 8px;
+    padding: 2px 4px;
+    gap: 1px;
+    min-width: 40px;
+  }
+
+  .editor-body {
+    min-height: 280px;
+    max-height: 320px;
+    overflow: hidden;
+  }
+
+  .code-content,
+  .line-numbers {
+    font-size: 11px;
+    padding: 8px 4px;
+  }
+
+  .code-content {
+    padding: 8px;
+    overflow-y: auto;
+    overflow-x: auto;
+    font-size: 9px; /* Very small for tiny screens */
+    white-space: nowrap;
+  }
+
+  .line-numbers {
+    min-width: 25px;
+    flex-shrink: 0;
+    overflow: hidden;
+    font-size: 9px;
+  }
+
+  .terminal-body {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 14px 16px;
+  }
+
+  .floating-elements {
+    display: none; /* Hide floating elements on very small screens */
+  }
+
+  .panel-content {
+    padding: 10px;
+  }
+
+  .stat-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  /* Ensure code doesn't overflow */
+  .code-line {
+    white-space: pre;
+    overflow: visible;
+    display: block;
+    min-height: 14px;
+    line-height: 14px;
+  }
+}
+
+/* Landscape orientation optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    padding: 10px 0;
+  }
+
+  .hero-content {
+    gap: 20px;
+  }
+
+  .editor-body {
+    min-height: 200px;
+    max-height: 250px;
+  }
+
+  .floating-elements {
+    display: none;
+  }
+}

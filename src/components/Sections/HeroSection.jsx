@@ -224,7 +224,7 @@ const HeroSection = () => {
             setDisplayedCode((prev) => [...prev, ""]);
           }
         }
-      }, 50); // Add timing for the animation
+      }, 1); // Super acelerado para 1ms - quase instantâneo
 
       return () => clearTimeout(timer);
     }

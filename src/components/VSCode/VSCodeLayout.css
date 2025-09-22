@@ -293,6 +293,79 @@
   }
 }
 
+/* Media query específica para iPhone 13 e dispositivos pequenos */
+@media (max-width: 414px) {
+  .status-bar {
+    padding: 0 8px;
+    height: 20px;
+    font-size: 10px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .status-left,
+  .status-right {
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .status-item {
+    padding: 1px 2px;
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  .status-left {
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  .status-right {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  /* Ocultar alguns itens em telas muito pequenas */
+  .status-item:nth-child(3),
+  .status-item:nth-child(4) {
+    display: none;
+  }
+}
+
+/* Media query para telas ainda menores (iPhone SE, etc) */
+@media (max-width: 375px) {
+  .status-bar {
+    padding: 0 6px;
+    height: 18px;
+    font-size: 9px;
+  }
+
+  .status-item {
+    padding: 1px;
+    font-size: 9px;
+    gap: 2px;
+  }
+
+  /* Ocultar mais itens em telas muito pequenas */
+  .status-left .status-item:nth-child(2),
+  .status-right .status-item:nth-child(3),
+  .status-right .status-item:nth-child(4) {
+    display: none;
+  }
+
+  /* Mostrar apenas os itens essenciais */
+  .status-left {
+    max-width: 50%;
+  }
+
+  .status-right {
+    max-width: 50%;
+  }
+}
+
 /* Scrollbar for sidebar */
 .sidebar::-webkit-scrollbar {
   width: 8px;
